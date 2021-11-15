@@ -1,45 +1,78 @@
 public class Critter {
     private boolean isAlive;
+    private boolean youWin;
     private int foodLevel;
     private int tiredness;
+    private String critterName;
+    private int workOut;
 
-    public Critter() {
+    public Critter(String critterName) {
         isAlive = true;
+        youWin = false;
         foodLevel = 5;
         tiredness = 0;
+        workOut = 0;
+        this.critterName = critterName;
     }
 
     public boolean isAlive() {
         return isAlive;
     }
 
+    public boolean youWin() { return youWin;}
+
     private void die() {
+        System.out.println(this.critterName + " has died.");
         isAlive = false;
+    }
+
+    private void win() {
+        System.out.println("You win " + this.critterName + " is fighting fit");
+        youWin = true;
     }
     
     public void sleep() {
-        System.out.println("Critter sleeps.");
+        System.out.println(this.critterName + " Sleeps");
         tiredness = 0;
         foodLevel -= 3;
         if (foodLevel <= 0) {
-            System.out.println("Critter starves to death.");
+            System.out.println(this.critterName + " starves to death.");
             die();
         }
     }
 
     public void feed() {
         if (isAlive) {
-            System.out.println("Critter eats.");
+            System.out.println(this.critterName + " eats.");
             foodLevel++;
             tiredness++;
             if (foodLevel > 10) {
-                System.out.println("Critter over ate.");
+                System.out.println(this.critterName + " over ate.");
                 die();
             }
             else if (tiredness > 5) {
-                System.out.println("Critter is sleepy from so much food.");
+                System.out.println(this.critterName + " is sleepy from so much food.");
                 sleep();
             }
         }
+    }
+
+    public void exercise() {
+        System.out.println(this.critterName + " exercises");
+        tiredness++;
+        foodLevel -= 1;
+        workOut += 5;
+        if (workOut == 15) {
+            win();
+        }
+        else if (tiredness > 5) {
+            System.out.println(this.critterName + " is sleepy from so much exercise.");
+            sleep();
+        }
+        else if (foodLevel <= 0) {
+            System.out.println(this.critterName + " starves to death.  They needed food to exercise");
+            die();
+        }
+
     }
 }

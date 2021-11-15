@@ -2,18 +2,21 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Critter bob = new Critter();
         Scanner scanner = new Scanner(System.in);
-        while (bob.isAlive()) {
+        System.out.println("What is your critters name?");
+        String critterName = scanner.nextLine();
+        Critter name = new Critter(critterName);
+        while (name.isAlive() == true && name.youWin() == false) {
             System.out.println("What would you like Critter to do?");
             String lineRead = scanner.nextLine();
             if (lineRead.equalsIgnoreCase("eat")) {
-                bob.feed();
+                name.feed();
             } else if (lineRead.equalsIgnoreCase("sleep")) {
-                bob.sleep();
+                name.sleep();
+            } else if (lineRead.equalsIgnoreCase("exercise")) {
+                name.exercise();
             }
         }
-        System.out.println("Critter has died.");
         scanner.close();
     }
 }
