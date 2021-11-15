@@ -32,9 +32,17 @@ public class Critter {
     }
     
     public void sleep() {
-        System.out.println(this.critterName + " Sleeps");
+        System.out.println(this.critterName + " sleeps");
         tiredness = 0;
         foodLevel -= 3;
+        for (int i = 0; i <= 5; i++){
+            try{
+                Thread.sleep(1000);
+                System.out.println("Zzzz...");
+            }catch (InterruptedException e) {
+                // Exception used for sleep method.  No catch output.
+            }
+        }
         if (foodLevel <= 0) {
             System.out.println(this.critterName + " starves to death.");
             die();
