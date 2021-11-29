@@ -21,6 +21,16 @@ public class Critter {
 
     public boolean youWin() { return youWin;}
 
+    public void sleepSound(){
+        System.out.println("Zzzz..");
+    }
+    public void eatSound(){
+        System.out.println("munch, munch");
+    }
+    public void exerciseSound(){
+        System.out.println("eeeeeeeekkkk");
+    }
+
     private void die() {
         System.out.println(this.critterName + " has died.");
         isAlive = false;
@@ -38,7 +48,7 @@ public class Critter {
         for (int i = 0; i <= 5; i++){
             try{
                 Thread.sleep(1000);
-                System.out.println("Zzzz...");
+                sleepSound();
             }catch (InterruptedException e) {
                 // Exception used for sleep method.  No catch output.
             }
@@ -52,6 +62,7 @@ public class Critter {
     public void feed() {
         if (isAlive) {
             System.out.println(this.critterName + " eats.");
+            eatSound();
             foodLevel++;
             tiredness++;
             if (foodLevel > 10) {
@@ -67,6 +78,7 @@ public class Critter {
 
     public void exercise() {
         System.out.println(this.critterName + " exercises");
+        exerciseSound();
         tiredness++;
         foodLevel -= 1;
         workOut += 5;
