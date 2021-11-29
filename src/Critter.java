@@ -1,4 +1,4 @@
-public class Critter {
+class Critter{
     private boolean isAlive;
     private boolean youWin;
     private int foodLevel;
@@ -13,6 +13,16 @@ public class Critter {
         tiredness = 0;
         workOut = 0;
         this.critterName = critterName;
+    }
+
+    public void getFoodLevel(int passedFoodLevel){
+        foodLevel += passedFoodLevel;
+    }
+    public void getTirednessLevel(int passedTirednessLevel){
+        tiredness += passedTirednessLevel;
+    }
+    public void getWorkOutLevel(int passedWorkOutLevel){
+        workOut += passedWorkOutLevel;
     }
 
     public boolean isAlive() {
@@ -59,12 +69,13 @@ public class Critter {
         }
     }
 
-    public void feed() {
+    public void feed(Food food) {
         if (isAlive) {
-            System.out.println(this.critterName + " eats.");
+            food.applyFood(this);
+            System.out.println(this.critterName + " eats ");
             eatSound();
-            foodLevel++;
-            tiredness++;
+            /*foodLevel++;
+            tiredness++;*/
             if (foodLevel > 10) {
                 System.out.println(this.critterName + " over ate.");
                 die();
