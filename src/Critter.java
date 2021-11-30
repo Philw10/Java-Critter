@@ -15,13 +15,19 @@ class Critter{
         this.critterName = critterName;
     }
 
-    public void getFoodLevel(int passedFoodLevel){
+    public String getName(){
+        return critterName;
+    }
+
+    public void setFoodLevel(int passedFoodLevel){
         foodLevel += passedFoodLevel;
     }
-    public void getTirednessLevel(int passedTirednessLevel){
+
+    public void setTirednessLevel(int passedTirednessLevel){
         tiredness += passedTirednessLevel;
     }
-    public void getWorkOutLevel(int passedWorkOutLevel){
+
+    public void setWorkOutLevel(int passedWorkOutLevel){
         workOut += passedWorkOutLevel;
     }
 
@@ -34,9 +40,11 @@ class Critter{
     public void sleepSound(){
         System.out.println("Zzzz..");
     }
+
     public void eatSound(){
         System.out.println("munch, munch");
     }
+
     public void exerciseSound(){
         System.out.println("eeeeeeeekkkk");
     }

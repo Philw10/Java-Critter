@@ -2,8 +2,8 @@ public class Ham implements Food{
     @Override
     public void applyFood(Critter creature) {
         System.out.println("You chose ham");
-        creature.getFoodLevel(4);
-        creature.getTirednessLevel(1);
-        creature.getWorkOutLevel(-2);
+        creature.setFoodLevel(4);
+        creature.setTirednessLevel(1);
+        creature.setWorkOutLevel(-2);
     }
 }

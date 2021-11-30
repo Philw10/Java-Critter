@@ -35,7 +35,7 @@ public class App {
     public static void whatToEat(Critter name){
         Scanner scanner = new Scanner(System.in);
         Food food = null;
-        System.out.println("What would you like your critter to eat?");
+        System.out.println("What would you like " + name.getName() + " to eat?");
         System.out.println("1. Seed\n2. Grass\n3. Ham");
         String critterFoodType = scanner.nextLine();
         if (critterFoodType.equals("1")){
